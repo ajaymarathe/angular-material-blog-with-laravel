@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +23,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material';
+import { MatSelectModule } from '@angular/material/select';
 
 import { LimitToPipe } from './pipes/limit-to.pipe';
 import { ShowComponent } from './show/show.component';
@@ -70,7 +72,9 @@ import { FancyCardComponent } from './admin/components/fancy-card/fancy-card.com
     MatInputModule,
     ReactiveFormsModule,
     FormsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MatSelectModule,
+    AngularEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

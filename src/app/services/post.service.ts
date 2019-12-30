@@ -22,5 +22,9 @@ export class PostService {
   GetNextPage(nextPage) {
     return this.http.get(this.url + '?page=' + nextPage);
   }
+
+  CreatePost(postData) {
+    return this.http.post(this.url, postData);
+  }
+
 }
-``

@@ -15,28 +15,28 @@ export class ShowComponent implements OnInit {
   responseData;
   post;
 
-  loading :boolean = false;
+  loading: boolean = false;
 
   ngOnInit() {
     this.show();
   }
 
-  show(){
+  show() {
     this.loading = true;
 
     const slug = this.route.snapshot.params.id;
     console.log(slug);
 
-    this.post_service.OnePost(slug)  
-    .subscribe(
-      (response: Response) => {
-        this.responseData = response;
-        this.post = this.responseData.data;
-        console.log('response',response)
-        this.loading = false;
-      },
-      (error) => console.log(error)
-    );
+    this.post_service.OnePost(slug)
+      .subscribe(
+        (response: Response) => {
+          // this.responseData = response;
+          console.log('response', response)
+          this.post = response;
+          this.loading = false;
+        },
+        (error) => console.log(error)
+      );
   }
 
 }
