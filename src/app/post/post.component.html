@@ -1,0 +1,36 @@
+<div>
+  <!-- base navbar  -->
+  <base-navbar></base-navbar>
+  <!-- end base navbar  -->
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 mt-5">
+        <mat-card class="example-card" *ngFor="let post of posts">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title><span>{{ post.title }}</span></mat-card-title>
+            <mat-card-subtitle><span class="text-capitalize"> by {{ post.user.name }}</span></mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image [src]="'http://blog.bootcatch.com/images/'+post.image" [alt]="post.image">
+          <mat-card-content>
+            <p [innerHTML]="post.body | limitTo:  100"></p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button [routerLink]="'show/'+post.slug" color="primary">Read more</button>
+          </mat-card-actions>
+        </mat-card>
+
+        <!-- progress bar   -->
+        <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+        <span *ngIf="!posts">Loading</span>
+        <!-- end progress bar  -->
+
+        <!-- paginator start -->
+        <mat-paginator *ngIf="postData" [length]="postData.meta.total" [pageSize]="postData.meta.per_page"
+          showFirstLastButtons (page)="getNext($event)">
+        </mat-paginator>
+        <!-- end paginator  -->
+      </div>
+    </div>
+  </div>
+</div>

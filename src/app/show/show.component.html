@@ -1,0 +1,27 @@
+<div >
+    <!-- base navbar  -->
+    <base-navbar></base-navbar>
+    <!-- end base navbar  -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 mt-5 mb-3">
+                <mat-card class="example-card" *ngIf="post">
+                    <mat-card-header>
+                      <div mat-card-avatar class="example-header-image"></div>
+                      <mat-card-title><span>{{ post.title }}</span></mat-card-title> 
+                      <mat-card-subtitle><span class="text-capitalize">by {{ post.user.name }}</span></mat-card-subtitle>
+                    </mat-card-header>
+                    <img mat-card-image [src]="'http://blog.bootcatch.com/images/'+post.image" [alt]="post.image">
+                    <mat-card-content>
+                      <p [innerHTML]="post.body"></p>
+                    </mat-card-content>
+                </mat-card>
+
+                <!-- progress bar   -->
+                <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+                <span *ngIf="!post">Loading</span>
+                <!-- end progress bar  -->
+            </div>
+        </div>
+    </div>
+</div>

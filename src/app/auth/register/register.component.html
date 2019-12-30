@@ -1,0 +1,27 @@
+<div style="background-image: url('../../../assets/img/bg2.jpg');background-size: cover;background-position: center;">
+  <div class="container">
+    <div class="row align-items-center justify-content-center" style="height: 100vh;">
+      <div class="col-md-6">
+        <mat-card>
+          <h4 class="text-center">Register</h4>
+          <hr>
+          <div class="example-container">
+            <mat-form-field>
+              <input [(ngModel)]="name" type="text" matInput placeholder="Name">
+            </mat-form-field>
+            <mat-form-field>
+              <input [(ngModel)]="email" type="email" matInput placeholder="Email">
+            </mat-form-field>
+            <mat-form-field>
+              <input [(ngModel)]="password" type="password" matInput placeholder="Password">
+            </mat-form-field>
+            <mat-form-field>
+              <input [(ngModel)]="c_password" type="password" matInput placeholder="Confirm password">
+            </mat-form-field>
+            <button mat-raised-button color="primary" (click)="Submit()">SignUp</button>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
